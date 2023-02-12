@@ -123,9 +123,10 @@ namespace GreentubePatformBackend.Controllers
         }
 
         //get transactions with filter of type supporting multiple types
-        [HttpGet("getTransactions/{playerId}/{type}")]
-        public async Task<IActionResult> GetTransactions(Guid playerId, TransactionType[] transactionTypes = null)
+        [HttpGet("getTransactions/{playerId}/{s_transactionTypes}")]
+        public async Task<IActionResult> GetTransactions(Guid playerId, string s_transactionTypes)
         {
+            var transactionTypes = s_transactionTypes.Split(',').Select(t => (TransactionType)Enum.Parse(typeof(TransactionType), t)).ToArray();
             var transactions = await _playerWalletRepository.GetTransactionsAsync(playerId,transactionTypes);
             if (transactionTypes != null && transactionTypes.Length > 0)
             {
