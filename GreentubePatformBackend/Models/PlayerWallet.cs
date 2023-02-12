@@ -4,14 +4,15 @@ namespace GreentubePatformBackend.Models
 {
     public class PlayerWallet
     {
-        private readonly object _lock = new object();
+        public readonly object _lock = new object();
         public Guid playerId { get; set; }
         public decimal Balance { get; set; }
         public List<Transaction> Transactions { get; set; }
 
-
+        //This can be an SQL Procedure or a Redis script
         public bool AddTransaction(Transaction transaction)
         {
+            //No multinode support, but can be added by using a distributed lock with Redis or SQL
             lock (_lock)
             {
                 //Check for negative amount
