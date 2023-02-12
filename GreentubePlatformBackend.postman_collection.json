@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "ff29b507-0f50-45c0-b985-a9c2b26461d4",
+		"name": "GreentubePatformBackend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api/Wallet",
+			"item": [
+				{
+					"name": "registerWallet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.code == 200){\r",
+									"    pm.test(\"Wallet registered\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });\r",
+									"}else{\r",
+									"    pm.test(\"Wallet already registered\", function () {\r",
+									"        pm.response.to.have.status(500);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wallet/registerWallet/:playerId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallet",
+								"registerWallet",
+								":playerId"
+							],
+							"variable": [
+								{
+									"key": "playerId",
+									"value": "fe2b6020-4698-3030-7759-47860de16438",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBalance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wallet/getBalance/:playerId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallet",
+								"getBalance",
+								":playerId"
+							],
+							"variable": [
+								{
+									"key": "playerId",
+									"value": "fe2b6020-4698-3030-7759-47860de16438",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deposit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wallet/deposit/:playerId/:amount",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallet",
+								"deposit",
+								":playerId",
+								":amount"
+							],
+							"variable": [
+								{
+									"key": "playerId",
+									"value": "fe2b6020-4698-3030-7759-47860de16438",
+									"description": "(Required) "
+								},
+								{
+									"key": "amount",
+									"value": "100",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stake",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wallet/stake/{{playerId}}/:amount",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallet",
+								"stake",
+								"{{playerId}}",
+								":amount"
+							],
+							"variable": [
+								{
+									"key": "amount",
+									"value": "10",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Win",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wallet/win/:playerId/:amount",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallet",
+								"win",
+								":playerId",
+								":amount"
+							],
+							"variable": [
+								{
+									"key": "playerId",
+									"value": "fe2b6020-4698-3030-7759-47860de16438",
+									"description": "(Required) "
+								},
+								{
+									"key": "amount",
+									"value": "20",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTransactions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/wallet/getTransactions/{{playerId}}/{{filter}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallet",
+								"getTransactions",
+								"{{playerId}}",
+								"{{filter}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:7136",
+			"type": "string"
+		},
+		{
+			"key": "playerId",
+			"value": "fe2b6020-4698-3030-7759-47860de16438"
+		},
+		{
+			"key": "filter",
+			"value": "0,1,2"
+		}
+	]
+}
